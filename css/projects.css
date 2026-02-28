@@ -205,3 +205,18 @@ main {
         text-align: center;
     }
 }
+
+@media (max-width: 480px) {
+    .project-block {
+        padding: 1.5rem 1rem;
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+    }
+
+    .btn-pulse {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
