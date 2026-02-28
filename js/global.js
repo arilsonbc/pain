@@ -1,4 +1,4 @@
-/* ── Navbar scroll tint ─────────────────── */
+
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
     if (nav) {

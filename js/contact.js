@@ -1,4 +1,4 @@
-/* ── Typing effect e Interações do Contact ──────────────────────── */
+
 document.addEventListener('DOMContentLoaded', () => {
     const word = 'conectar.';
     const el = document.getElementById('typed');

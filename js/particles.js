@@ -1,4 +1,4 @@
-/* ── Particle canvas ────────────────────── */
+
 document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.getElementById('bg-canvas');
     if (!canvas) return;
@@ -6,11 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = canvas.getContext('2d');
     let W, H, particles = [];
 
-    // Ler a contagem de partículas pelo data attribute do canvas, ou usar 90 como fallback.
+    
     const COUNT = parseInt(canvas.getAttribute('data-particles')) || 90;
 
-    // Verificamos se estamos no index.html (tem evento de mousemove customizado na raiz lá?)
-    // Mas a lógica de conexões varia levemente. Usaremos a do index/contact/projects.
+    
+    
     const connectionDist = canvas.getAttribute('data-connection-dist') ? parseInt(canvas.getAttribute('data-connection-dist')) : 120;
 
     function resize() {
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ctx.beginPath();
                     ctx.moveTo(particles[i].x, particles[i].y);
                     ctx.lineTo(particles[j].x, particles[j].y);
-                    // Adjust multiplier based on distance for a smoother fade
+                    
                     let strokeAlpha = (1 - d / connectionDist) * 0.07;
                     ctx.strokeStyle = `rgba(6,182,212,${strokeAlpha})`;
                     ctx.lineWidth = 0.5;
