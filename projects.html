@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meus Projetos | Portfólio Henrique</title>
+    <meta name="description" content="Detalhes dos meus projetos de análise de dados, ETL e econometria." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --accent: #06B6D4;
+            --accent2: #38BDF8;
+            --dark: #0F172A;
+            --card: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.08);
+            --text: #F1F5F9;
+            --muted: #94A3B8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 5vw;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.35s;
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: transparent;
+            border: 1px solid var(--accent) !important;
+            color: var(--accent) !important;
+            padding: 0.45rem 1.2rem;
+            border-radius: 50px;
+            transition: background 0.3s, color 0.3s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent) !important;
+            color: var(--dark) !important;
+        }
+
+        /* Main Content */
+        main {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            padding: 8rem 5vw 4rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-desc {
+            color: var(--muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Project Block */
+        .project-block {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+            scroll-margin-top: 100px;
+            /* offset for fixed navbar */
+        }
+
+        .project-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            line-height: 1;
+        }
+
+        .project-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .project-content strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1.5rem 0;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 1.8rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            color: var(--muted);
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .feature-list strong {
+            color: var(--text);
+        }
+
+        .highlights {
+            background: rgba(6, 182, 212, 0.05);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+        }
+
+        .highlight-bullet {
+            color: var(--accent2);
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        .project-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.02);
+        }
+
+        .project-action {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+
+        .btn-pulse {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: var(--accent);
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: transform 0.25s, box-shadow 0.25s;
+            box-shadow: 0 0 24px rgba(6, 182, 212, 0.35);
+            animation: pulse-btn 2.2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-btn {
+
+            0%,
+            100% {
+                box-shadow: 0 0 18px rgba(6, 182, 212, 0.35), 0 0 0 0 rgba(6, 182, 212, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 32px rgba(6, 182, 212, 0.6), 0 0 0 10px rgba(6, 182, 212, 0);
+            }
+        }
+
+        .btn-pulse:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 48px rgba(6, 182, 212, 0.7);
+            animation-play-state: paused;
+        }
+
+        @media (max-width: 768px) {
+            .project-block {
+                padding: 2rem 1.5rem;
+            }
+
+            .project-header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <nav>
+        <a href="index.html" class="nav-logo">Portfolio.</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="index.html#projects">Projetos</a></li>
+            <li><a href="contact.html" class="nav-cta">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">Meus Projetos</h1>
+            <p class="page-desc">Estudos de caso, automações e análises quantitativas que transformam dados complexos em
+                vantagens competitivas.</p>
+        </div>
+
+        <!-- Projeto 1 -->
+        <article id="projeto1" class="project-block">
+            <div class="project-header">
+                <div class="project-icon">🌽</div>
+                <div>
+                    <h2 class="project-title">Automação e Dados: Monitorando o mercado de milho em tempo real</h2>
+                </div>
+            </div>
+
+            <div class="project-content">
+                <p>No agronegócio, entender a precedência temporal entre o clima e o preço é o que diferencia uma
+                    análise comum de uma estratégia de mercado. Este projeto evoluiu de um pipeline de ETL automatizado
+                    para uma modelagem econométrica completa que quantifica o impacto real da pluviosidade na região de
+                    Passo Fundo/RS.</p>
+
+                <h3 style="color: var(--text); margin: 2rem 0 1rem; font-family: 'Space Grotesk', sans-serif;">Destaques
+                    técnicos da arquitetura:</h3>
+
+                <ul class="feature-list">
+                    <li><strong>Coleta & Ingestão:</strong> Web scraping (Notícias Agrícolas) e integração via API
+                        (Open-Meteo) para consolidar séries temporais de preço e clima.</li>
+                    <li><strong>Armazenamento:</strong> Estrutura em camadas no Google BigQuery, centralizando o
+                        histórico desde 2025.</li>
+                    <li><strong>Orquestração:</strong> Automação diária e monitoramento de saúde do pipeline via GitHub
+                        Actions.</li>
+                    <li><strong>Análise Econométrica:</strong> Aplicação de Teste de Causalidade de Granger e regressão
+                        OLS (Ordinary Least Squares) para isolar variáveis.</li>
+                    <li><strong>Visualização:</strong> Dashboard dinâmico no Looker Studio integrado a um modelo de
+                        Forecasting para os próximos 6 dias.</li>
+                </ul>
+
+                <p>Através da modelagem, foi identificado um <strong>Lag logístico de 6 dias</strong>: o mercado físico
+                    regional leva quase uma semana para absorver totalmente os choques de oferta causados por chuvas
+                    intensas.</p>
+
+                <div class="highlights">
+                    <div class="highlight-item">
+                        <span class="highlight-bullet">•</span>
+                        <span class="highlight-text"><strong>Rigor Estatístico:</strong> Modelo validado com p-valor de
+                            0.007 (99% de confiança).</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-bullet">•</span>
+                        <span class="highlight-text"><strong>Elasticidade de Preço:</strong> Identificou-se que, para
+                            cada 10mm de chuva, ocorre uma variação média de R$ 1,25 na saca.</span>
+                    </div>
+                    <div class="highlight-item">
+                        <span class="highlight-bullet">•</span>
+                        <span class="highlight-text"><strong>Projeção Real:</strong> O sistema é capaz de gerar
+                            previsões de abertura de mercado para a próxima segunda-feira com base no volume
+                            pluviométrico de hoje.</span>
+                    </div>
+                    <div class="project-gallery">
+                        <img src="projeto 1 img1.png" alt="Demonstração do Projeto 1 - Imagem 1" class="gallery-img"
+                            onerror="this.src='https://via.placeholder.com/800x450/1E293B/06B6D4?text=Projeto+1+-+Imagem+1'">
+                        <img src="projeto 1 img2.png" alt="Demonstração do Projeto 1 - Imagem 2" class="gallery-img"
+                            onerror="this.src='https://via.placeholder.com/800x450/1E293B/06B6D4?text=Projeto+1+-+Imagem+2'">
+                        <img src="projeto 1 img3.png" alt="Demonstração do Projeto 1 - Imagem 3" class="gallery-img"
+                            onerror="this.src='https://via.placeholder.com/800x450/1E293B/06B6D4?text=Projeto+1+-+Imagem+3'">
+                    </div>
+
+                    <div class="project-action">
+                        <a href="https://github.com/henriquereolonpain-sys/monitor-clima-pf" target="_blank"
+                            class="btn-pulse">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                            </svg>
+                            Acesse o repositório
+                        </a>
+                    </div>
+
+                </div>
+        </article>
+
+        <!-- Placeholder para Projetos 2, 3 e 4 -->
+        <article id="projeto2" class="project-block" style="display: none;">
+            <div class="project-header">
+                <div class="project-icon">📈</div>
+                <div>
+                    <h2 class="project-title">Projeto 2</h2>
+                </div>
+            </div>
+            <div class="project-content">
+                <p>Aguardando informações...</p>
+            </div>
+        </article>
+
+        <article id="projeto3" class="project-block" style="display: none;">
+            <div class="project-header">
+                <div class="project-icon">⚙️</div>
+                <div>
+                    <h2 class="project-title">Projeto 3</h2>
+                </div>
+            </div>
+            <div class="project-content">
+                <p>Aguardando informações...</p>
+            </div>
+        </article>
+
+        <article id="projeto4" class="project-block" style="display: none;">
+            <div class="project-header">
+                <div class="project-icon">💡</div>
+                <div>
+                    <h2 class="project-title">Projeto 4</h2>
+                </div>
+            </div>
+            <div class="project-content">
+                <p>Aguardando informações...</p>
+            </div>
+        </article>
+
+    </main>
+
+    <script>
+        /* Partículas reutilizadas para fundo dinâmico */
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let W, H, particles = [];
+        const COUNT = 60; // um pouco menos intenso que na index
+
+        function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+
+        class Particle {
+            constructor() { this.reset(true); }
+            reset(init) {
+                this.x = Math.random() * W;
+                this.y = init ? Math.random() * H : H + 10;
+                this.r = Math.random() * 1.5 + 0.4;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = -(Math.random() * 0.4 + 0.2);
+                this.alpha = Math.random() * 0.4 + 0.05;
+                this.color = Math.random() > 0.5 ? '6,182,212' : '56,189,248';
+            }
+            update() { this.x += this.vx; this.y += this.vy; if (this.y < -10) this.reset(false); }
+            draw() {
+                ctx.save(); ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${this.color},${this.alpha})`; ctx.fill(); ctx.restore();
+            }
+        }
+
+        function init() { resize(); particles = Array.from({ length: COUNT }, () => new Particle()); }
+
+        function drawConnections() {
+            const dist = 110;
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const d = Math.sqrt(dx * dx + dy * dy);
+                    if (d < dist) {
+                        ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(6,182,212,${(1 - d / dist) * 0.05})`;
+                        ctx.lineWidth = 0.5; ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, W, H);
+            particles.forEach(p => { p.update(); p.draw(); });
+            drawConnections();
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', resize);
+        init(); animate();
+
+        window.addEventListener('scroll', () => {
+            document.querySelector('nav').style.background = window.scrollY > 40 ? 'rgba(15,23,42,0.92)' : 'rgba(15,23,42,0.7)';
+        });
+    </script>
+</body>
+
+</html>
