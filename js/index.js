@@ -1,9 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const hasChosenLang = localStorage.getItem('preferredLanguage');
+
+    // Auto-redirect if page doesn't match preference
+    const currentPath = window.location.pathname;
+    const isEnPage = currentPath.includes('-en.html');
+
+    if (hasChosenLang === 'en' && !isEnPage) {
+        // Redirect to the English version of the current page
+        const newPath = currentPath.replace('.html', '-en.html');
+        // If path is just '/', redirect to index-en.html
+        window.location.href = currentPath === '/' ? '/index-en.html' : newPath;
+        return;
+    } else if (hasChosenLang === 'pt' && isEnPage) {
+        // Redirect to the Portuguese version of the current page
+        const newPath = currentPath.replace('-en.html', '.html');
+        window.location.href = newPath;
+        return;
+    }
+
     const modal = document.getElementById('language-modal');
     if (modal) {
-        const hasChosenLang = localStorage.getItem('preferredLanguage');
-
-        // If not chosen yet, prevent scrolling
         if (!hasChosenLang) {
             document.body.style.overflow = 'hidden';
 
@@ -13,18 +29,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     const lang = btn.getAttribute('data-lang');
                     localStorage.setItem('preferredLanguage', lang);
 
-                    // Specific logic for English could go here (e.g redirect to index-en.html)
-                    // if (lang === 'en') { window.location.href = 'index-en.html'; return; }
+                    if (lang === 'en') {
+                        window.location.href = 'index-en.html';
+                        return;
+                    }
 
                     modal.classList.add('hidden');
-                    document.body.style.overflow = ''; // Restore scrolling
+                    document.body.style.overflow = '';
 
-                    // Remove from DOM after animation completes (cleanup)
                     setTimeout(() => modal.remove(), 500);
                 });
             });
         } else {
-            // Already chosen, don't show modal
             modal.remove();
         }
     }

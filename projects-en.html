@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Meus Projetos | Portfólio Henrique</title>
-    <meta name="description" content="Detalhes dos meus projetos de análise de dados, ETL e econometria." />
+    <title>My Projects | Henrique's Portfolio</title>
+    <meta name="description" content="Details of my data analysis, ETL, and econometrics projects." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,19 +29,19 @@
             <span></span>
         </button>
         <ul class="nav-links">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="index.html#sobre-mim">Sobre mim</a></li>
-            <li><a href="index.html#projects">Projetos</a></li>
-            <li><a href="index.html#skills">Skills</a></li>
-            <li><a href="contact.html" class="nav-cta">Contato</a></li>
+            <li><a href="index-en.html">Home</a></li>
+            <li><a href="index-en.html#sobre-mim">About me</a></li>
+            <li><a href="index-en.html#projects">Projects</a></li>
+            <li><a href="index-en.html#skills">Skills</a></li>
+            <li><a href="contact-en.html" class="nav-cta">Contact</a></li>
         </ul>
     </nav>
 
     <main>
         <div class="page-header">
-            <h1 class="page-title">Meus Projetos</h1>
-            <p class="page-desc">Estudos de caso, automações e análises quantitativas que transformam dados complexos em
-                vantagens competitivas.</p>
+            <h1 class="page-title">My Projects</h1>
+            <p class="page-desc">Case studies, automations, and quantitative analysis that transform complex data into
+                competitive advantages.</p>
         </div>
 
 
@@ -49,63 +49,65 @@
             <div class="project-header">
                 <div class="project-icon">🌽</div>
                 <div>
-                    <h2 class="project-title">Forecasting Agrícola: Impacto Pluviométrico no Preço do Milho</h2>
+                    <h2 class="project-title">Agricultural Forecasting: Rainfall Impact on Corn Prices</h2>
                 </div>
             </div>
 
             <div class="project-content">
-                <p>No agronegócio, entender a precedência temporal entre o clima e o preço é o que diferencia uma
-                    análise comum de uma estratégia de mercado. Este projeto evoluiu de um pipeline de ETL automatizado
-                    para uma modelagem econométrica completa que quantifica o impacto real da pluviosidade na região de
-                    Passo Fundo/RS.</p>
+                <p>In agribusiness, understanding the temporal precedence between weather and price is what sets
+                    a common analysis apart from a market strategy. This project evolved from an automated ETL pipeline
+                    to a complete econometric model that quantifies the real impact of rainfall in the
+                    Passo Fundo/RS region.</p>
 
-                <h3 style="color: var(--text); margin: 2rem 0 1rem; font-family: 'Space Grotesk', sans-serif;">Destaques
-                    técnicos da arquitetura:</h3>
+                <h3 style="color: var(--text); margin: 2rem 0 1rem; font-family: 'Space Grotesk', sans-serif;">
+                    Architecture
+                    technical highlights:</h3>
 
                 <ul class="feature-list">
-                    <li><strong>Coleta & Ingestão:</strong> Web scraping (Notícias Agrícolas) e integração via API
-                        (Open-Meteo) para consolidar séries temporais de preço e clima.</li>
-                    <li><strong>Armazenamento:</strong> Estrutura em camadas no Google BigQuery, centralizando o
-                        histórico desde 2025.</li>
-                    <li><strong>Orquestração:</strong> Automação diária e monitoramento de saúde do pipeline via GitHub
+                    <li><strong>Collection & Ingestion:</strong> Web scraping (Notícias Agrícolas) and API integration
+                        (Open-Meteo) to consolidate price and weather time series.</li>
+                    <li><strong>Storage:</strong> Multi-layer structure in Google BigQuery, centralizing historical
+                        data since 2025.</li>
+                    <li><strong>Orchestration:</strong> Daily automation and pipeline health monitoring via GitHub
                         Actions.</li>
-                    <li><strong>Análise Econométrica:</strong> Aplicação de Teste de Causalidade de Granger e regressão
-                        OLS (Ordinary Least Squares) para isolar variáveis.</li>
-                    <li><strong>Visualização:</strong> Dashboard dinâmico no Looker Studio integrado a um modelo de
-                        Forecasting para os próximos 6 dias.</li>
+                    <li><strong>Econometric Analysis:</strong> Application of Granger Causality Test and OLS (Ordinary
+                        Least Squares)
+                        regression to isolate variables.</li>
+                    <li><strong>Visualization:</strong> Dynamic dashboard in Looker Studio integrated with a Forecasting
+                        model for the next 6 days.</li>
                 </ul>
 
-                <p>Através da modelagem, foi identificado um <strong>Lag logístico de 6 dias</strong>: o mercado físico
-                    regional leva quase uma semana para absorver totalmente os choques de oferta causados por chuvas
-                    intensas.</p>
+                <p>Through modeling, a <strong>6-day logistic Lag</strong> was identified: the regional physical market
+                    takes almost a week to fully absorb the supply shocks caused by intense rainfall.</p>
 
                 <div class="highlights">
                     <div class="highlight-item">
                         <span class="highlight-bullet">•</span>
-                        <span class="highlight-text"><strong>Rigor Estatístico:</strong> Modelo validado com p-valor de
-                            0.007 (99% de confiança).</span>
+                        <span class="highlight-text"><strong>Statistical Rigor:</strong> Model validated with a p-value
+                            of
+                            0.007 (99% confidence).</span>
                     </div>
                     <div class="highlight-item">
                         <span class="highlight-bullet">•</span>
-                        <span class="highlight-text"><strong>Elasticidade de Preço:</strong> Identificou-se que, para
-                            cada 10mm de chuva, ocorre uma variação média de R$ 1,25 na saca.</span>
+                        <span class="highlight-text"><strong>Price Elasticity:</strong> It was identified that for
+                            every 10mm of rain, there is an average price variation of R$ 1.25 per bag.</span>
                     </div>
                     <div class="highlight-item">
                         <span class="highlight-bullet">•</span>
-                        <span class="highlight-text"><strong>Projeção Real:</strong> O sistema é capaz de gerar
-                            previsões de abertura de mercado para a próxima segunda-feira com base no volume
-                            pluviométrico de hoje.</span>
+                        <span class="highlight-text"><strong>Real Projection:</strong> The system is capable of
+                            generating
+                            market opening forecasts for next Monday based on today's rainfall volume.</span>
                     </div>
                     <div class="project-gallery">
-                        <img src="projeto 1/projeto 1 img1.jpg" alt="Demonstração do Projeto 1 - Imagem 1"
+                        <img src="projeto 1/projeto 1 img1.jpg" alt="Project 1 Demonstration - Image 1"
                             class="gallery-img"
-                            onerror="this.src='https://via.placeholder.com/800x450/1E293B/06B6D4?text=Projeto+1+-+Imagem+1'">
-                        <img src="projeto 1/projeto 1 img2.jpg" alt="Demonstração do Projeto 1 - Imagem 2"
+                            onerror="this.src='https://via.placeholder.com/800x450/1E293B/06B6D4?text=Project+1+-+Image+1'">
+                        <img src="projeto 1/projeto 1 img2.jpg" alt="Project 1 Demonstration - Image 2"
                             class="gallery-img"
-                            onerror="this.src='https://via.placeholder.com/800x450/1E293B/06B6D4?text=Projeto+1+-+Imagem+2'">
-                        <img src="projeto 1/projeto 1 img3.jpg" alt="Demonstração do Projeto 1 - Imagem 3"
+                            onerror="this.src='https://via.placeholder.com/800x450/1E293B/06B6D4?text=Project+1+-+Image+2'">
+                        <img src="projeto 1/projeto 1 img3.jpg" alt="Project 1 Demonstration - Image 3"
                             class="gallery-img"
-                            onerror="this.src='https://via.placeholder.com/800x450/1E293B/06B6D4?text=Projeto+1+-+Imagem+3'">
+                            onerror="this.src='https://via.placeholder.com/800x450/1E293B/06B6D4?text=Project+1+-+Image+3'">
                     </div>
 
                     <div class="project-action">
@@ -115,7 +117,7 @@
                                 <path
                                     d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
                             </svg>
-                            Acesse o repositório
+                            Access repository
                         </a>
                     </div>
                 </div>
@@ -127,35 +129,37 @@
             <div class="project-header">
                 <div class="project-icon">📈</div>
                 <div>
-                    <h2 class="project-title">Business Intelligence: Dashboards Financeiros e Inteligência de Mercado
+                    <h2 class="project-title">Business Intelligence: Financial Dashboards & Market Intelligence
                     </h2>
                 </div>
             </div>
             <div class="project-content">
-                <p>Neste projeto feito com dados mockados, o objetivo foi criar um dashboard de fácil interpretação que
-                    comunica indicadores complexos de forma clara para diferentes níveis da organização, sem a
-                    necessidade de apresentações extensas.</p>
+                <p>In this project created with mocked data, the goal was to build an easily interpretable dashboard
+                    that
+                    communicates complex indicators clearly to different levels of the organization, without the
+                    need for extensive presentations.</p>
 
-                <h3 style="color: var(--text); margin: 2rem 0 1rem; font-family: 'Space Grotesk', sans-serif;">Destaques
-                    técnicos:</h3>
+                <h3 style="color: var(--text); margin: 2rem 0 1rem; font-family: 'Space Grotesk', sans-serif;">Technical
+                    highlights:</h3>
 
                 <ul class="feature-list">
-                    <li><strong>DRE e Macrocategorias:</strong> Engloba dados detalhados da DRE de 2025 organizados por
-                        categorias como Administração, Financeiras e Pessoal.</li>
-                    <li><strong>Indicadores Visuais:</strong> Cartões inteligentes que mudam de cor dinamicamente
-                        conforme a performance (atingimento de metas).</li>
-                    <li><strong>Análise de Margem:</strong> Gráficos que demonstram o peso das contas e a margem real
-                        sobre o faturamento da empresa.</li>
-                    <li><strong>Fluxo de Caixa 2026:</strong> Apresentação clara do fluxo de caixa previsto para o
-                        próximo ano.</li>
-                    <li><strong>Análise de Erro:</strong> Estudo profundo dos erros de forecast que ocorreram na
-                        operação em dez/24. 🐻</li>
+                    <li><strong>P&L and Macro categories:</strong> Encompasses detailed 2025 P&L data organized by
+                        categories such as Administration, Financials, and Personnel.</li>
+                    <li><strong>Visual Indicators:</strong> Smart cards that change color dynamically
+                        based on performance (goal achievement).</li>
+                    <li><strong>Margin Analysis:</strong> Charts demonstrating the weight of accounts and the real
+                        margin
+                        on company revenue.</li>
+                    <li><strong>2026 Cash Flow:</strong> Clear presentation of the projected cash flow for the
+                        upcoming year.</li>
+                    <li><strong>Error Analysis:</strong> Deep study of the forecast errors that occurred in the
+                        operation during Dec/24. 🐻</li>
                 </ul>
 
                 <div class="project-gallery">
 
-                    <img src="projeto 2/1f5cd472.jpg" alt="Dashboard Elasticidade e DRE" class="gallery-img"
-                        onerror="this.src='https://via.placeholder.com/800x450/1E293B/06B6D4?text=Projeto+2+-+Imagem+1'">
+                    <img src="projeto 2/1f5cd472.jpg" alt="Elasticity and P&L Dashboard" class="gallery-img"
+                        onerror="this.src='https://via.placeholder.com/800x450/1E293B/06B6D4?text=Project+2+-+Image+1'">
 
 
                     <div
@@ -176,7 +180,7 @@
                             <line x1="12" y1="20" x2="12" y2="4"></line>
                             <line x1="6" y1="20" x2="6" y2="14"></line>
                         </svg>
-                        Acessar Dashboard Completo
+                        Access Full Dashboard
                     </a>
                 </div>
             </div>
@@ -186,27 +190,29 @@
             <div class="project-header">
                 <div class="project-icon">⚙️</div>
                 <div>
-                    <h2 class="project-title">BI de Dados para Tomada de Decisão Estratégica com ETL</h2>
+                    <h2 class="project-title">Data BI for Strategic Decision Making with ETL</h2>
                 </div>
             </div>
             <div class="project-content">
-                <p>Neste projeto, apresento um dashboard interativo desenvolvido para validar a correlação entre
-                    critérios de sustentabilidade e retornos excedentes no mercado brasileiro.</p>
-                <p>O projeto utiliza o <strong>Coeficiente de Pearson</strong> para provar a força da relação entre o
-                    Score ESG e a performance financeira de ativos.</p>
+                <p>In this project, I present an interactive dashboard developed to validate the correlation between
+                    sustainability criteria and excess returns in the Brazilian market.</p>
+                <p>The project utilizes the <strong>Pearson Correlation Coefficient</strong> to prove the strength of
+                    the relationship between the
+                    ESG Score and asset financial performance.</p>
 
-                <h3 style="color: var(--text); margin: 2rem 0 1rem; font-family: 'Space Grotesk', sans-serif;">Destaques
-                    técnicos:</h3>
+                <h3 style="color: var(--text); margin: 2rem 0 1rem; font-family: 'Space Grotesk', sans-serif;">Technical
+                    highlights:</h3>
 
                 <ul class="feature-list">
-                    <li><strong>Mapeamento de Risco-Retorno:</strong> Visualização clara da relação de risco e os
-                        retornos dos ativos estudados.</li>
-                    <li><strong>Alpha Dinâmico:</strong> O sistema calcula o Alpha dinâmico de cada ativo em comparação
-                        ao Ibovespa.</li>
-                    <li><strong>Validação Estatística com Pearson:</strong> Comprovação matemática da correlação do
-                        rating ESG perante a performance do ativo.</li>
-                    <li><strong>Visão de Geração de Valor:</strong> Permite uma visão clara da geração de valor de um
-                        portfólio acima do benchmark de mercado do Brasil. 🐧</li>
+                    <li><strong>Risk-Return Mapping:</strong> Clear visualization of the risk and returns relationship
+                        of the studied assets.</li>
+                    <li><strong>Dynamic Alpha:</strong> The system calculates the dynamic Alpha of each asset compared
+                        to the Ibovespa benchmark.</li>
+                    <li><strong>Statistical Validation with Pearson:</strong> Mathematical proof of the correlation of
+                        the
+                        ESG rating with asset performance.</li>
+                    <li><strong>Value Generation View:</strong> Allows a clear view of portfolio value generation
+                        above the Brazilian market benchmark. 🐧</li>
                 </ul>
 
                 <div class="project-gallery">
@@ -230,7 +236,7 @@
                             <line x1="12" y1="20" x2="12" y2="4"></line>
                             <line x1="6" y1="20" x2="6" y2="14"></line>
                         </svg>
-                        Acessar Dashboard Completo
+                        Access Full Dashboard
                     </a>
                 </div>
             </div>
@@ -240,20 +246,20 @@
             <div class="project-header">
                 <div class="project-icon">💡</div>
                 <div>
-                    <h2 class="project-title">Modelagem de Elasticidade Preço-Demanda e Sensibilidade</h2>
+                    <h2 class="project-title">Price-Demand Elasticity and Sensitivity Modeling</h2>
                 </div>
             </div>
             <div class="project-content">
-                <p>Nesta análise com dados do Kaggle importados por meio de script diretamente no SQL, o objetivo era
-                    criar um dashboard que permitisse ao gestor calcular automaticamente a variação do faturamento de
-                    acordo com diferentes níveis de preço, por uma métrica de elasticidade.</p>
-                <p>O background foi feito no FIGMA, portanto usamos 3 ferramentas distintas para esse relatório, do qual
-                    a parte mais interessante é sua junção automática com a base de dados no SQL. 🐥</p>
+                <p>In this analysis with Kaggle data imported via script directly into SQL, the objective was to
+                    create a dashboard allowing the manager to automatically calculate revenue variation
+                    according to different price levels using elasticity metrics.</p>
+                <p>The background was made in FIGMA, therefore we used 3 different tools for this report,
+                    the most interesting part being its automatic integration with the SQL database. 🐥</p>
 
                 <div class="project-gallery" style="margin-top: 2rem;">
 
-                    <img src="projeto 4/af11ba78.jpg" alt="Dashboard Elasticidade e Sensibilidade" class="gallery-img"
-                        onerror="this.src='https://via.placeholder.com/800x450/1E293B/06B6D4?text=Projeto+4+-+Imagem+1'">
+                    <img src="projeto 4/af11ba78.jpg" alt="Elasticity and Sensitivity Dashboard" class="gallery-img"
+                        onerror="this.src='https://via.placeholder.com/800x450/1E293B/06B6D4?text=Project+4+-+Image+1'">
 
 
                     <div
@@ -275,7 +281,7 @@
                             <line x1="12" y1="20" x2="12" y2="4"></line>
                             <line x1="6" y1="20" x2="6" y2="14"></line>
                         </svg>
-                        Acesse a análise
+                        Access the analysis
                     </a>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    const word = 'conectar.';
+    const word = 'connect.';
     const el = document.getElementById('typed');
     if (!el) return;
 
